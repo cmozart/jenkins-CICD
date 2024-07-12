@@ -12,8 +12,6 @@ pipeline {
         cleanWs()
       }
     }
-
-  stages {
     stage('Checkout') {
       steps {
         sh 'echo passed'
@@ -71,6 +69,11 @@ pipeline {
                 '''
             }
         }
+    }
+  }
+  post {
+    always {
+      cleanWs()
     }
   }
 }
